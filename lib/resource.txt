@@ -4,6 +4,10 @@ Library           OperatingSystem
 
 *** Variables ***
 
-${BASE_URI}      http://${HOST_SYSTEM}:${PORT}/redfish/v1
+${BASE_URI}          http://${HOST_SYSTEM}:${PORT}/redfish/v1
 
-${HTTP_OK}       200
+${USERNAME}          root
+${PASSWORD}          ${EMPTY}
+${CMD_IPL_STATE}     smgr mfgState
+
+${HTTP_OK}           200

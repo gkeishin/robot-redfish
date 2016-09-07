@@ -46,6 +46,22 @@ class rest_client():
         return  r.status_code
 
     ########################################################################
+    #   @brief    Request POST method
+    #   @param    base_url: @type string: URL to base redfish
+    #   @param    i_url: @type string: Suffix string of the path
+    #   @param    parm: @type string: data to be written
+    #   @return   HTTP REST status code
+    ########################################################################
+    def post_request(self , base_url, i_url, parm):
+        i_url = base_url + i_url
+        self.write_to_console(i_url)
+        pdata = json.dumps({'ResetType' : parm})
+        self.json_pretty_format(pdata)
+        r = requests.post(i_url, data = pdata)
+        self.write_to_console (r.status_code)
+        return  r.status_code
+
+    ########################################################################
     #   @brief    Print the JSON data pretty format to Console
     #   @param    i_response: @type json: JSON response data
     #   @return   None
