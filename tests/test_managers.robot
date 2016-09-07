@@ -41,5 +41,5 @@ Test Revert Systems Name
 
 Get Systems Name
      ${system_name}=   Get Request   ${BASE_URI}   /Systems
-     ${sys_str}=   Get_system string    ${system_name["Members"][0]['@odata.id']}
+     ${sys_str}=   Get System String    ${system_name["Members"][0]['@odata.id']}
      [return]  ${sys_str}
