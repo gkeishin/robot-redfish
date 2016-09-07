@@ -5,7 +5,7 @@ from robot.libraries.BuiltIn import BuiltIn
 
 class rest_client():
 
-    def get_request(self, base_url, i_url):
+    def get_request(self, base_url, i_url=""):
         i_url = base_url + i_url
         self.write_to_console(i_url)
         r = requests.get(i_url, verify=False)
@@ -26,7 +26,7 @@ class rest_client():
 
     def json_pretty_format(self, i_response):
         #print(json.dumps(response, indent=2))
-        self.write_to_console(json.dumps(i_response, indent=2))
+        self.write_to_console(json.dumps(i_response, indent=4))
 
     def write_to_console(self, s):
         BuiltIn().log_to_console(s)
