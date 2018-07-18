@@ -13,8 +13,8 @@ class redfish_connect(object):
         """
 
         self.base_url = "https://" + host_ip
-        self.username = "dev"
-        self.password = "FipSdev"
+        self.username = "root"
+        self.password = "mysecretePassword"
         self.default_prefix="/redfish/v1"
 
         self.robj = redfish.redfish_client(base_url=self.base_url,
