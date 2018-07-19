@@ -1,9 +1,5 @@
 import   redfish
-
-r"""
-To use this code:
-    pip install redfish
-"""
+import   json
 
 class redfish_connect(object):
 
@@ -14,7 +10,7 @@ class redfish_connect(object):
 
         self.base_url = "https://" + host_ip
         self.username = "root"
-        self.password = "mysecretePassword"
+        self.password = "myPassword"
         self.default_prefix="/redfish/v1"
 
         self.robj = redfish.redfish_client(base_url=self.base_url,
@@ -46,9 +42,24 @@ class redfish_connect(object):
         self.robj.logout()
 
 
+    def json_data(self, response):
+        r"""
+        Return JSON converted data.
+        """
+        json_data = json.loads(response.text)
+        return json_data
 
-# Example:
+
+    def json_pretty_print(self, json_data):
+        r"""
+        JSON data pretty print the formatted output on console.
+        """
+        print json.dumps(json_data, sort_keys=True, indent=4)
+
+
+# Example how to use:
 connection = redfish_connect("XX.XX.XX.XX")
 response = connection.get_method("Systems")
-print ("%s\n" % response)
+json_data = connection.json_data(response)
+connection.json_pretty_print(json_data)
 connection.logout_session()
