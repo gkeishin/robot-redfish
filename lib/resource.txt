@@ -8,6 +8,6 @@ ${BASE_URI}          http://${HOST_SYSTEM}:${PORT}/redfish/v1
 
 ${USERNAME}          root
 ${PASSWORD}          ${EMPTY}
-${CMD_IPL_STATE}     smgr mfgState
+${CMD_IPL_STATE}     ${EMPTY}
 
 ${HTTP_OK}           200
